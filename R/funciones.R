@@ -155,3 +155,10 @@ CalcLAI <- function(fractions, width = 6) {
   LAI <- 2 * sum(-log(T) * wi * cos(angle * deg2rad))
   return(LAI)
 }
+
+hemiploteale <- function(file, fraction) {
+  file %>%
+    jpeg::readJPEG() %>%
+    Image2Hemiphot(fraction = fraction) %>% 
+    PlotHemiImage(draw.circle = TRUE)
+}
